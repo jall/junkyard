@@ -1,0 +1,47 @@
+{
+  "version": "0.1.0",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "dev": "ts-node src/index.ts",
+    "start": "node dist/index.js",
+    "build": "rm -rf ./dist/ && tsc --project tsconfig.json",
+    "test": "mocha --config .mocharc.yml 'src/**/__tests__/*'",
+    "fix-formatting-all": "./node_modules/.bin/prettier '**/*.ts' --write",
+    "fix-formatting": "./node_modules/.bin/prettier $(git status --porcelain | sed 's/^...//' | grep -E '\\.tsx?$') --write",
+    "lint": "./node_modules/.bin/prettier '**/*.ts' --list-different"
+  },
+  "peerDependencies": {},
+  "husky": {
+    "hooks": {
+      "commit-msg": "node ./node_modules/fit-commit-js/lib/hook.js .git/COMMIT_EDITMSG",
+      "pre-commit": "npm run lint",
+      "pre-push": "npm run test"
+    }
+  },
+  "name": "junkyard",
+  "author": "Jon Hall",
+  "module": "dist/junkyard.esm.js",
+  "devDependencies": {
+    "@types/chai": "^4.2.16",
+    "@types/jest": "^26.0.22",
+    "@types/mocha": "^8.2.2",
+    "@types/sinon": "^9.0.11",
+    "@types/sinon-chai": "^3.2.5",
+    "chai": "^4.3.4",
+    "husky": "^6.0.0",
+    "mocha": "^8.3.2",
+    "sinon": "^10.0.1",
+    "sinon-chai": "^3.6.0",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.4"
+  }
+}

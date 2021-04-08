@@ -1,0 +1,9 @@
+require:
+  - "ts-node/register"
+extension:
+  - js
+  - jsx
+  - ts
+  - tsx
+reporter: dot
+ui: bdd
