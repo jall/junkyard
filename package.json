@@ -1,15 +1,5 @@
 {
-  "version": "0.1.0",
-  "license": "MIT",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
-  "files": [
-    "dist",
-    "src"
-  ],
-  "engines": {
-    "node": ">=10"
-  },
+  "name": "junkyard",
   "scripts": {
     "dev": "ts-node src/index.ts",
     "start": "node dist/index.js",
@@ -17,31 +7,49 @@
     "test": "mocha --config .mocharc.yml 'src/**/__tests__/*'",
     "fix-formatting-all": "./node_modules/.bin/prettier '**/*.ts' --write",
     "fix-formatting": "./node_modules/.bin/prettier $(git status --porcelain | sed 's/^...//' | grep -E '\\.tsx?$') --write",
-    "lint": "./node_modules/.bin/prettier '**/*.ts' --list-different"
+    "check-formatting": "./node_modules/.bin/prettier '**/*.ts' --list-different",
+    "lint": "eslint src"
   },
-  "peerDependencies": {},
   "husky": {
     "hooks": {
       "commit-msg": "node ./node_modules/fit-commit-js/lib/hook.js .git/COMMIT_EDITMSG",
-      "pre-commit": "npm run lint",
+      "pre-commit": "npm run check-formatting && npm run lint",
       "pre-push": "npm run test"
     }
   },
-  "name": "junkyard",
-  "author": "Jon Hall",
-  "module": "dist/junkyard.esm.js",
   "devDependencies": {
     "@types/chai": "^4.2.16",
     "@types/jest": "^26.0.22",
     "@types/mocha": "^8.2.2",
     "@types/sinon": "^9.0.11",
     "@types/sinon-chai": "^3.2.5",
+    "@typescript-eslint/eslint-plugin": "^4.21.0",
+    "@typescript-eslint/parser": "^4.21.0",
     "chai": "^4.3.4",
+    "eslint": "^7.23.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-mocha-no-only": "^1.1.1",
+    "eslint-plugin-prettier": "^3.3.1",
     "husky": "^6.0.0",
     "mocha": "^8.3.2",
+    "prettier": "^2.2.1",
     "sinon": "^10.0.1",
     "sinon-chai": "^3.6.0",
     "ts-node": "^9.1.1",
     "typescript": "^4.2.4"
+  },
+  "module": "dist/junkyard.esm.js",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "author": "Jon Hall",
+  "version": "0.1.0",
+  "license": "MIT",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=14"
   }
 }
