@@ -1,5 +1,5 @@
 import {expect} from "chai"
-import {filter, map, pipeT, toArray} from "../transducers"
+import {filter, map, pipeT, toArray} from "../transducer"
 
 describe("transducers", () => {
   it("combining multiple transducers works", () => {
