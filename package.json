@@ -8,7 +8,8 @@
     "fix-formatting-all": "./node_modules/.bin/prettier '**/*.ts' --write",
     "fix-formatting": "./node_modules/.bin/prettier $(git status --porcelain | sed 's/^...//' | grep -E '\\.tsx?$') --write",
     "check-formatting": "./node_modules/.bin/prettier '**/*.ts' --list-different",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "prepare": "husky install"
   },
   "husky": {
     "hooks": {
