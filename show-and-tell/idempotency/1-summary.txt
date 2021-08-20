@@ -1,0 +1,13 @@
+- What is it?
+  - No matter how many times you call the operation, the result will be the same
+- HTTP
+  - https://developer.mozilla.org/en-US/docs/Glossary/Idempotent
+  - https://developer.mozilla.org/en-US/docs/Glossary/Safe/HTTP
+  - GET vs POST vs PUT
+  - https://stripe.com/docs/api/idempotent_requests
+  - https://www.youtube.com/watch?v=nnMqSQtSZUQ&list=PLy1nL-pvL2M50RmP6ie-gdcSnfOuQCRYk&index=8
+- SQL
+  - https://www.postgresql.org/docs/9.6/sql-insert.html#SQL-ON-CONFLICT
+- PubSub
+- Webhooks
+  - https://stripe.com/docs/webhooks/best-practices#events-and-retries

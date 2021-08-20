@@ -1,0 +1,29 @@
+POST /listings/123/decrement-quantity
+# {"quantity": 2}
+
+POST /listings/123/decrement-quantity
+# {"quantity": 1}
+
+
+
+PUT /listings/123 {"quantity": 5}
+# {"quantity": 5}
+
+PUT /listings/123 {"quantity": 5}
+# {"quantity": 5}
+
+
+
+GET /listings/123
+# {"quantity": 3}
+
+PUT /listings/123 {"quantity": 2}
+# {"quantity": 2}
+
+
+
+PUT /listings/123/decrement-quantity {"idempotencyKey": "e45eff25-7e4b-470b-8bc7-d35ce7eef772"}
+# {"quantity": 2}
+
+PUT /listings/123/decrement-quantity {"idempotencyKey": "e45eff25-7e4b-470b-8bc7-d35ce7eef772"}
+# {"quantity": 2}
